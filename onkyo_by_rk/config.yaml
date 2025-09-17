@@ -1,0 +1,18 @@
+name: Onkyo by RK
+version: 0.1.11
+slug: onkyo_by_rk
+description: Onkyo/Pioneer eISCP utilities
+arch:
+  - amd64
+  - aarch64
+startup: services
+boot: auto
+ingress: false
+options:
+  host: ""
+  port: 60128
+  git_repo: ""
+schema:
+  host: str
+  port: port
+  git_repo: str

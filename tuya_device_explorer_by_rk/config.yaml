@@ -1,0 +1,17 @@
+name: Tuya Device Explorer by RK
+version: 0.1.11
+slug: tuya_device_explorer_by_rk
+description: Explore Tuya devices locally
+arch:
+  - amd64
+  - aarch64
+startup: application
+boot: auto
+ingress: false
+webui: "http://[HOST]:[PORT:8097]"
+options:
+  api_key: ""
+  git_repo: ""
+schema:
+  api_key: str
+  git_repo: str
