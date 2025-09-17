@@ -1,4 +1,5 @@
-## v0.1.11 (2025-09-17)
-- Remove TileBoard repo from setup.
-- Keep only active by RK add-ons.
-- Validate schemas and aarch64 Dockerfiles.
+## v0.1.15 (2025-09-17)
+- Fix: validated all config.yaml and Dockerfiles.
+- NB Boknedlaster schema and arch corrected.
+- Tuya Local base image corrected.
+- System Dump startup/services standardized.

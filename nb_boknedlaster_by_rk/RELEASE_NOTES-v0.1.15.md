@@ -1,0 +1,1 @@
+nb_boknedlaster_by_rk validated.

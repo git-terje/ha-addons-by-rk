@@ -2,7 +2,7 @@ import os, json, logging, subprocess
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
-logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s", datefmt="%%Y-%%m-%%dT%%H:%%M:%%SZ")
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s", datefmt="%Y-%m-%dT%H:%M:%SZ")
 def git_clone_or_pull(url, target="/data/repo"):
     if not url: return
     try:
@@ -18,7 +18,8 @@ app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], all
 def startup():
     try:
         with open("/data/options.json","r",encoding="utf-8") as f:
-            git_clone_or_pull(json.load(f).get("git_repo",""))
+            git = json.load(f).get("git_repo",""); 
+            if git: git_clone_or_pull(git)
     except Exception: pass
     logging.info("Tuya Discovery started")
 @app.get("/health")

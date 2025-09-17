@@ -1,10 +1,8 @@
 name: POS Backend by RK
-version: 0.1.11
+version: 0.1.15
 slug: pos_backend_by_rk
 description: POS backend with Google Sheets integration, stock, sales, labels
-arch:
-  - amd64
-  - aarch64
+arch: [aarch64, amd64]
 startup: services
 boot: auto
 init: false
@@ -20,5 +18,5 @@ schema:
   google_sheet_id: str
   service_account_json: str
   ha_event: str
-  git_repo: str
+  git_repo: str?
 webui: "http://[HOST]:[PORT:8091]"

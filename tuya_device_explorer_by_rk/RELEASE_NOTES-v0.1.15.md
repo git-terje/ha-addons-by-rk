@@ -1,0 +1,1 @@
+tuya_device_explorer_by_rk validated.

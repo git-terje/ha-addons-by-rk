@@ -4,15 +4,21 @@ def git_clone_or_pull(url, target="/data/repo"):
     if not url: return
     try:
         if not os.path.exists(target):
-            logging.info(f"Cloning {url}"); subprocess.run(["git","clone","--depth","1",url,target], check=True)
+            logging.info(f"Cloning {url}")
+            subprocess.run(["git","clone","--depth","1",url,target], check=True)
         else:
             subprocess.run(["git","-C",target,"pull","--ff-only"], check=True)
     except Exception as e:
         logging.error(f"git error: {e}")
-try:
-    with open("/data/options.json","r",encoding="utf-8") as f:
-        git_clone_or_pull(json.load(f).get("git_repo",""))
-except Exception: pass
+def read_options():
+    try:
+        with open("/data/options.json","r",encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        logging.error(f"options.json read error: {e}")
+        return {}
+opts = read_options()
+git_clone_or_pull(opts.get("git_repo",""))
 logging.info("Service started")
 while True:
     logging.info("heartbeat"); time.sleep(300)

@@ -1,0 +1,15 @@
+name: POS Frontend by RK
+version: 0.1.15
+slug: pos_frontend_by_rk
+description: Mobile-friendly POS frontend for POS Backend by RK
+arch: [aarch64, amd64]
+startup: application
+boot: auto
+ingress: true
+webui: "http://[HOST]:[PORT:8095]"
+ports:
+  "8095/tcp": 8095
+options:
+  backend_url: "http://supervisor:8091"
+schema:
+  backend_url: str
